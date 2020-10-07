@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +6,7 @@ namespace DataStructures.Lib.Stacks
 {
     public class SentiStack : IEnumerable
     {
-        LinkedList<object> lList = new LinkedList<object>();
+        private LinkedList<object> lList = new LinkedList<object>();
         public int Count { get => lList.Count; }
 
         public void Push(object obj) => lList.AddFirst(obj);
