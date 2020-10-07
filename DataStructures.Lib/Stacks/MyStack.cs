@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-namespace DataStructures.Lib
+namespace DataStructures.Lib.Stacks
 {
     public class MyStack : IEnumerable
     {

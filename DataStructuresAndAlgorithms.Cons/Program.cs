@@ -1,4 +1,4 @@
-﻿using DataStructures.Lib;
+﻿using DataStructures.Lib.Stacks;
 using DataStructuresAndAlgorithms.Api.Services;
 
 namespace DataStructuresAndAlgorithms.Cons
