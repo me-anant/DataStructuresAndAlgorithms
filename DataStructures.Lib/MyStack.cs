@@ -49,6 +49,11 @@ namespace DataStructures.Lib
             return array[0];
         }
 
+        public virtual object[] ToArray()
+        {
+            return array;
+        }
+
         public IEnumerator GetEnumerator()
         {
             return array.AsEnumerable().GetEnumerator();
