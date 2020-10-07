@@ -1,7 +1,7 @@
 # Data-Structures And Algorithms
 
 This is a repository where I personally learn to create my own implementations of Data-Structures and Algorithms.
-The repository is just starting so there are more Data-Structures and Algorithm implementations to come.
+The repository is just starting so there are more Data-Structures and Algorithm implementations yet to come.
 
 I have started with the Stack Data-Structure and have created an Issue concerning the aforementioned Data-Structure where you can also try to create your own implementation.
 
