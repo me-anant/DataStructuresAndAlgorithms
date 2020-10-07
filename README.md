@@ -15,4 +15,4 @@ Good luck, for you and for me, because in al honesty I am a newbie myself to thi
 - Fork this repository
 - Clone the forked repository to your IDE
 - Create a pull request if your implementation works
-- Wait for my respond :-)
+- Wait for my response :-)
