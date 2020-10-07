@@ -54,7 +54,18 @@ namespace DataStructures.Lib
             return array;
         }
 
-        public IEnumerator GetEnumerator()
+        public virtual bool Contains(object obj)
+        {
+            return array.Contains(obj);
+        }
+
+        public virtual void Clear()
+        {
+            Count = 0;
+            array = new object[0];
+        }
+
+        public virtual IEnumerator GetEnumerator()
         {
             return array.AsEnumerable().GetEnumerator();
         }

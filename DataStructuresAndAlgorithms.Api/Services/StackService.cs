@@ -1,5 +1,4 @@
-﻿using DataStructures.Lib;
-using System;
+﻿using System;
 using System.Collections;
 using System.Linq;
 
@@ -12,19 +11,24 @@ namespace DataStructuresAndAlgorithms.Api.Services
             if (yourStack is null)
                 throw new ArgumentNullException(nameof(yourStack), "The parameter can not be null");
 
-            ThrowInValidOperationExceptionIfMethodNotFound(yourStack, "Push", "Pop", "Peek", "ToArray");
+            if (yourStack is Stack)
+                throw new InvalidOperationException("Use your own stack implementation when calling this method.");
 
-            Console.WriteLine(yourStack.GetType()?.Name);
+            ThrowInValidOperationExceptionIfMethodNotFound(yourStack, "Push", "Pop", "Peek", "ToArray", "Contains", "Clear");
+
+            Console.WriteLine("\n" + yourStack.GetType()?.Name);
+            Console.WriteLine("---------------------------------");
             object customStack = CreateStack(yourStack);
             Console.WriteLine("*****************************");
-            Console.WriteLine("ORIGINAL STACK");
+            Console.WriteLine("\nORIGINAL STACK");
+            Console.WriteLine("---------------------------------");
             Stack originalStack = CreateStack(new Stack()) as Stack;
 
             Console.WriteLine("============================================");
             if (Enumerable.SequenceEqual(originalStack.ToArray(),
                 yourStack.GetType().GetMethod("ToArray").Invoke(customStack, null) as object[]))
-                Console.WriteLine("The Stacks are equal; you created a correct implementation of a Stack.");
-            else Console.WriteLine("The Stacks are not equal; you will have to try a different implementation.");
+                Console.WriteLine("\nThe Stacks are equal; you created a correct implementation of a Stack.");
+            else Console.WriteLine("\nThe Stacks are not equal; you will have to try a different implementation.");
         }
 
         private static object CreateStack(dynamic stack)
@@ -38,9 +42,15 @@ namespace DataStructuresAndAlgorithms.Api.Services
             stack.Push("On Top");
             stack.Pop();
             stack.Push(DateTime.Now.ToShortDateString());
-            ConsoleWriteStackResults(stack);
             Console.WriteLine($"Stack Count: {stack.Count}");
-
+            Console.WriteLine($"Stack Contains 'one' ?: {stack.Contains("one")}");
+            Console.WriteLine($"Stack Contains 1: {stack.Contains(1)}");
+            stack.Clear();
+            Console.WriteLine($"Stack cleared; Stack Count: {stack.Count}");
+            Console.WriteLine($"Stack Contains 1 ?: {stack.Contains(1)}");
+            stack.Push("BOTTOM");
+            stack.Push(500);
+            ConsoleWriteStackResults(stack);
             return stack;
         }
 
