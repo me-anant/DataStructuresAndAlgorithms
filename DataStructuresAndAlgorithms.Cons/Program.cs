@@ -10,6 +10,7 @@ namespace DataStructuresAndAlgorithms.Cons
             // pass your stack class as an argument in the below method
             // and run the DataStructuresAndAlgorithms.Cons project to test.
             // StackService.CompareStackResult( stackClass );
+            StackService.CompareStackResult(new SentiStack());
         }
     }
 }
