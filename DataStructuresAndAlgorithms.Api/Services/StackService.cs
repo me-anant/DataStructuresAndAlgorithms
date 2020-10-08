@@ -1,16 +1,12 @@
-﻿using DataStructures.Lib.Arrays;
-using System;
+﻿using System;
 using System.Collections;
 using System.Linq;
 
 namespace DataStructuresAndAlgorithms.Api.Services
 {
-    public class StackService
+    public class StackService : AsideService
     {
-        private static string _originalOutputs = "";
-        private static string _customOutputs = "";
-
-        public static void CompareStackResult(object yourStack)
+        public void CompareStackResult(object yourStack)
         {
             if (yourStack is null)
                 throw new ArgumentNullException(nameof(yourStack), "The parameter can not be null");
@@ -18,7 +14,7 @@ namespace DataStructuresAndAlgorithms.Api.Services
             if (yourStack is Stack)
                 throw new InvalidOperationException("Use your own stack implementation when calling this method.");
 
-            AsideService.ThrowInValidOperationExceptionIfMethodNotFound(yourStack, "Push", "Pop", "Peek", "ToArray", "Contains", "Clear");
+            ThrowInValidOperationExceptionIfAnyMethodNotFoundOfTheGivenMethods(yourStack, "Push", "Pop", "Peek", "ToArray", "Contains", "Clear");
 
             Console.WriteLine("\n" + yourStack.GetType()?.Name);
             Console.WriteLine("---------------------------------");
@@ -31,12 +27,12 @@ namespace DataStructuresAndAlgorithms.Api.Services
             Console.WriteLine("============================================");
             if (Enumerable.SequenceEqual(originalStack.ToArray(),
                 yourStack.GetType().GetMethod("ToArray").Invoke(customStack, null) as object[])
-                && string.Equals(_originalOutputs, _customOutputs))
+                && string.Equals(OriginalOutputs, CustomOutputs))
                 Console.WriteLine("\nThe Stacks are equal; you created a correct implementation of a Stack.");
             else Console.WriteLine("\nThe Stacks are not equal; you will have to try a different implementation.");
         }
 
-        private static object CreateStack(dynamic stack)
+        private object CreateStack(dynamic stack)
         {
             string outputs = "";
 
@@ -61,27 +57,9 @@ namespace DataStructuresAndAlgorithms.Api.Services
             stack.Push(DateTime.Now.ToShortDateString());
             stack.Push(500);
 
-            SetupOutputs(stack, outputs);
-            ConsoleWriteStackResults(stack);
+            SetupOutputs(stack, outputs, typeof(Stack));
+            ConsoleWriteResults(stack, typeof(Stack));
             return stack;
-        }
-
-        private static void ConsoleWriteStackResults(dynamic stack)
-        {
-            string outputs = "";
-            foreach (var item in stack)
-            {
-                outputs += item;
-                Console.WriteLine(item);
-            }
-
-            SetupOutputs(stack, outputs);
-        }
-
-        private static void SetupOutputs(dynamic stack, string outputs)
-        {
-            if (stack is Stack) _originalOutputs += outputs;
-            else _customOutputs += outputs;
         }
     }
 }
