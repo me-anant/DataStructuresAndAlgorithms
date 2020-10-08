@@ -50,8 +50,8 @@ namespace DataStructuresAndAlgorithms.Api.Services
             Console.WriteLine($"Stack Contains 'one' ?: {stack.Contains("one")}");
             Console.WriteLine($"Stack Contains 1: {stack.Contains(1)}");
             stack.Clear();
-            outputs += $"Stack cleared; Stack Count: {stack.Count}Stack Contains 1 ?: {stack.Contains(1)}";
-            Console.WriteLine($"Stack cleared; Stack Count: {stack.Count}");
+            outputs += $"Stack Cleared; Stack Count: {stack.Count}Stack Contains 1 ?: {stack.Contains(1)}";
+            Console.WriteLine($"Stack Cleared; Stack Count: {stack.Count}");
             Console.WriteLine($"Stack Contains 1 ?: {stack.Contains(1)}");
             stack.Push("BOTTOM");
             stack.Push(DateTime.Now.ToShortDateString());

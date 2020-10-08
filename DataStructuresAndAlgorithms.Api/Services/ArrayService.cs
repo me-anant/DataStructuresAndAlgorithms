@@ -49,8 +49,8 @@ namespace DataStructuresAndAlgorithms.Api.Services
             Console.WriteLine($"Array Contains '5' ?: {array.Contains(5)}");
             Console.WriteLine($"Array Contains '3' ?: {array.Contains(3)}");
             array.Clear();
-            outputs += $"Stack cleared; Stack Count: {(isList ? array.Count : array.Length)}Array Contains '1' ?: {array.Contains(1)}";
-            Console.WriteLine($"Stack cleared; Stack Count: {(isList ? array.Count : array.Length)}");
+            outputs += $"Array Cleared; Array Length: {(isList ? array.Count : array.Length)}Array Contains '1' ?: {array.Contains(1)}";
+            Console.WriteLine($"Array Cleared; Array Length: {(isList ? array.Count : array.Length)}");
             Console.WriteLine($"Array Contains '1' ?: {array.Contains(1)}");
             array.Add(1000);
             array.Add(2000);
