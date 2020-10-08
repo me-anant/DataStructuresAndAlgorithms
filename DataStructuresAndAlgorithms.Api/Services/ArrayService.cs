@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DataStructuresAndAlgorithms.Api.Services
 {
-    public class ArrayService : AsideService
+    public class ArrayService : BaseService
     {
         public void CompareArrayResult(object yourArray)
         {

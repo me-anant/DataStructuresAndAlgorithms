@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DataStructuresAndAlgorithms.Api.Services
 {
-    public class StackService : AsideService
+    public class StackService : BaseService
     {
         public void CompareStackResult(object yourStack)
         {
