@@ -17,13 +17,6 @@ namespace DataStructures.Lib.Arrays
             set => Set(index, value);
         }
 
-        private void Set(int index, T value)
-        {
-            ThrowArgumentOutOfRangeExceptionIfIndexOutOfRange(index);
-
-            _array[index] = value;
-        }
-
         public MyDynamicArray()
         {
             _array = new T[_capacity];
@@ -89,12 +82,6 @@ namespace DataStructures.Lib.Arrays
             return -1;
         }
 
-        private void ThrowArgumentOutOfRangeExceptionIfIndexOutOfRange(int index)
-        {
-            if (index > Length - 1 || index < 0)
-                throw new ArgumentOutOfRangeException(nameof(index), "Index was out of range. Must be non negative and less than the size of the collection.");
-        }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -103,6 +90,19 @@ namespace DataStructures.Lib.Arrays
         public IEnumerator<T> GetEnumerator()
         {
             return _array.AsEnumerable().GetEnumerator();
+        }
+
+        private void ThrowArgumentOutOfRangeExceptionIfIndexOutOfRange(int index)
+        {
+            if (index > Length - 1 || index < 0)
+                throw new ArgumentOutOfRangeException(nameof(index), "Index was out of range. Must be non negative and less than the size of the collection.");
+        }
+
+        private void Set(int index, T value)
+        {
+            ThrowArgumentOutOfRangeExceptionIfIndexOutOfRange(index);
+
+            _array[index] = value;
         }
     }
 }
