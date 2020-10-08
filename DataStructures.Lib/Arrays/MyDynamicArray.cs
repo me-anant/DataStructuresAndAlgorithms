@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DataStructures.Lib.Arrays
 {
-    public class MyDynamicArray<T> : IEnumerable
+    public class MyDynamicArray<T> : IEnumerable<T>
     {
         private T[] _array;
         private int _capacity = 0;
@@ -31,7 +32,8 @@ namespace DataStructures.Lib.Arrays
         public void Clear()
         {
             Array.Clear(_array, 0, Length);
-            _array = new T[0];
+            _capacity = 0;
+            _array = new T[_capacity];
         }
 
         public void Add(T elem)
@@ -87,15 +89,20 @@ namespace DataStructures.Lib.Arrays
             return -1;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return _array.AsEnumerable().GetEnumerator();
-        }
-
         private void ThrowArgumentOutOfRangeExceptionIfIndexOutOfRange(int index)
         {
             if (index > Length - 1 || index < 0)
                 throw new ArgumentOutOfRangeException(nameof(index), "Index was out of range. Must be non negative and less than the size of the collection.");
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return _array.AsEnumerable().GetEnumerator();
         }
     }
 }
