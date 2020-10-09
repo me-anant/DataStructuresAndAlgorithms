@@ -6,7 +6,7 @@ namespace DataStructuresAndAlgorithms.Api.Services
 {
     public class ArrayService : BaseService
     {
-        public void CompareArrayResult(object yourArray)
+        public void CompareConsoleArrayResult(object yourArray)
         {
             if (yourArray is null)
                 throw new ArgumentNullException(nameof(yourArray), "The parameter can not be null");
@@ -19,11 +19,11 @@ namespace DataStructuresAndAlgorithms.Api.Services
 
             Console.WriteLine("\n" + yourArray.GetType()?.Name);
             Console.WriteLine("---------------------------------");
-            IEnumerable<int> customArray = CreateArray(yourArray) as IEnumerable<int>;
+            IEnumerable<int> customArray = CreateConsoleArray(yourArray) as IEnumerable<int>;
             Console.WriteLine("*****************************");
             Console.WriteLine("\nORIGINAL");
             Console.WriteLine("---------------------------------");
-            List<int> originalArray = CreateArray(new List<int>()) as List<int>;
+            List<int> originalArray = CreateConsoleArray(new List<int>()) as List<int>;
             Console.WriteLine("============================================");
             if (Enumerable.SequenceEqual(originalArray, customArray)
                 && string.Equals(OriginalOutputs, CustomOutputs))
@@ -31,7 +31,37 @@ namespace DataStructuresAndAlgorithms.Api.Services
             else Console.WriteLine("\nThe Arrays are not equal; you will have to try a different implementation.");
         }
 
-        private object CreateArray(dynamic array)
+        /// <summary>
+        /// Performs some predefined actions on a dynamic array or any type that implements the dynamic array data structure.
+        /// </summary>
+        /// <param name="stack">The dynamic array to perform some actions upon.</param>
+        /// <returns>
+        /// The provided dynamic array with some pre defined values.
+        /// </returns>
+        public object CreateArray(dynamic array)
+        {
+            if (array is null)
+                throw new ArgumentNullException(nameof(array), "The parameter can not be null");
+
+            ThrowInValidOperationExceptionIfAnyMethodNotFoundOfTheGivenMethods(array, "Add", "Remove", "RemoveAt", "IndexOf", "Contains", "Clear");
+
+            array.Add(1);
+            array.Add(2);
+            array.Add(3);
+            array.Add(4);
+            array.Add(5);
+            array.Remove(3);
+            array.Clear();
+            array.Add(1000);
+            array.Add(2000);
+            array.Add(3000);
+            array[1] = 5;
+            array.RemoveAt(2);
+
+            return array;
+        }
+
+        private object CreateConsoleArray(dynamic array)
         {
             string outputs = "";
             bool isList = array.GetType() == typeof(List<int>);

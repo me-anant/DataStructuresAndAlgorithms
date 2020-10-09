@@ -17,12 +17,12 @@ namespace DataStructuresAndAlgorithms.Cons
 
             // Pass your stack class as an argument in the below method.
             // Run the DataStructuresAndAlgorithms.Cons project to test.
-            //_stackService.CompareStackResult(new MyStack());
+            //_stackService.CompareConsoleStackResult(new MyStack());
 
             // Pass your dynamic array class as an argument in the below method.
             // For testing purposes use int for your array type arguments.
             // Run the DataStructuresAndAlgorithms.Cons project to test.
-            //_arrayService.CompareArrayResult(new MyDynamicArray<int>());
+            //_arrayService.CompareConsoleArrayResult(new MyDynamicArray<int>());
         }
     }
 }

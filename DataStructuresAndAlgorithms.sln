@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Lib", "DataStructures.Lib\DataStructures.Lib.csproj", "{055A04D8-7449-451B-9C0D-10BB54A47416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures.Lib", "DataStructures.Lib\DataStructures.Lib.csproj", "{055A04D8-7449-451B-9C0D-10BB54A47416}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresAndAlgorithms.Cons", "DataStructuresAndAlgorithms.Cons\DataStructuresAndAlgorithms.Cons.csproj", "{A1E0DA01-0A10-4DC3-A41E-9C9AC9C8C024}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructuresAndAlgorithms.Cons", "DataStructuresAndAlgorithms.Cons\DataStructuresAndAlgorithms.Cons.csproj", "{A1E0DA01-0A10-4DC3-A41E-9C9AC9C8C024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresAndAlgorithms.Api", "DataStructuresAndAlgorithms.Api\DataStructuresAndAlgorithms.Api.csproj", "{2E99A46B-FABE-4774-8485-E79CA28A700E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructuresAndAlgorithms.Api", "DataStructuresAndAlgorithms.Api\DataStructuresAndAlgorithms.Api.csproj", "{2E99A46B-FABE-4774-8485-E79CA28A700E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresAndAlgorithms.Test", "DataStructuresAndAlgorithms.Test\DataStructuresAndAlgorithms.Test.csproj", "{12082C91-BE55-4CDC-BDE9-4DB4BB637BB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2E99A46B-FABE-4774-8485-E79CA28A700E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E99A46B-FABE-4774-8485-E79CA28A700E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E99A46B-FABE-4774-8485-E79CA28A700E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12082C91-BE55-4CDC-BDE9-4DB4BB637BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12082C91-BE55-4CDC-BDE9-4DB4BB637BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12082C91-BE55-4CDC-BDE9-4DB4BB637BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12082C91-BE55-4CDC-BDE9-4DB4BB637BB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
