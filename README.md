@@ -3,8 +3,9 @@
 This is a repository where I personally learn to create my own implementations of Data-Structures and Algorithms in C#.
 The repository is just starting so there are more Data-Structures and Algorithm implementations yet to come.
 
-I have started with the Stack Data-Structure and have created an Issue concerning the aforementioned Data-Structure where you can also try to create your own implementation.
-You can find the issue here https://github.com/Kerykeion7/DataStructuresAndAlgorithms/issues/5
+Also I let this repository count for the hacktoberfest to give others a chance to learn something about Data-structures and algorithms and a the same time get there four PL's
+
+An issue for implementing a Stack can be found here https://github.com/Kerykeion7/DataStructuresAndAlgorithms/issues/5
 
 An issue for implementing a Dynamic Array can be found here https://github.com/Kerykeion7/DataStructuresAndAlgorithms/issues/8
 
