@@ -7,7 +7,7 @@ namespace DataStructuresAndAlgorithms.Test.StackTests
 {
     public class StackTests
     {
-        private static StackService _stackService;
+        private readonly StackService _stackService;
         public StackTests()
         {
             _stackService = new StackService();
