@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace DataStructuresAndAlgorithms.Api.Services
 {
@@ -11,7 +12,7 @@ namespace DataStructuresAndAlgorithms.Api.Services
         {
             foreach (string methodName in methodNames)
             {
-                if (stack.GetType()?.GetMethod(methodName) is null)
+                if (stack.GetType()?.GetMethods()?.FirstOrDefault(m => m.Name.Equals(methodName, StringComparison.OrdinalIgnoreCase)) is null)
                     throw new InvalidOperationException($"The required '{methodName}' method was not found in the '{stack.GetType().Name}' class");
             }
         }
