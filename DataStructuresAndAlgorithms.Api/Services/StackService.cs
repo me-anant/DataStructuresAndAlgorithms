@@ -33,14 +33,19 @@ namespace DataStructuresAndAlgorithms.Api.Services
         }
 
         /// <summary>
-        /// Fills a stack or any type that implements the stack data structure with some pre defined values.
+        /// Performs some predefined actions on a stack or any type that implements the stack data structure.
         /// </summary>
-        /// <param name="stack">The stack to fill with values.</param>
+        /// <param name="stack">The stack to perform some actions upon.</param>
         /// <returns>
-        /// The provided stack with some random values.
+        /// The provided stack with some pre defined values.
         /// </returns>
         public object CreateStack(dynamic stack)
         {
+            if (stack is null)
+                throw new ArgumentNullException(nameof(stack), "The parameter can not be null");
+
+            ThrowInValidOperationExceptionIfAnyMethodNotFoundOfTheGivenMethods(stack, "Push", "Pop", "Peek", "ToArray", "Contains", "Clear");
+
             stack.Push(1);
             stack.Push("one");
             stack.Push(1.2358);
