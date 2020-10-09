@@ -6,7 +6,7 @@ namespace DataStructuresAndAlgorithms.Api.Services
 {
     public class StackService : BaseService
     {
-        public void CompareStackResult(object yourStack)
+        public void CompareConsoleStackResult(object yourStack)
         {
             if (yourStack is null)
                 throw new ArgumentNullException(nameof(yourStack), "The parameter can not be null");
@@ -18,11 +18,11 @@ namespace DataStructuresAndAlgorithms.Api.Services
 
             Console.WriteLine("\n" + yourStack.GetType()?.Name);
             Console.WriteLine("---------------------------------");
-            object customStack = CreateStack(yourStack);
+            object customStack = CreateConsoleStack(yourStack);
             Console.WriteLine("*****************************");
             Console.WriteLine("\nORIGINAL STACK");
             Console.WriteLine("---------------------------------");
-            Stack originalStack = CreateStack(new Stack()) as Stack;
+            Stack originalStack = CreateConsoleStack(new Stack()) as Stack;
 
             Console.WriteLine("============================================");
             if (Enumerable.SequenceEqual(originalStack.ToArray(),
@@ -32,7 +32,31 @@ namespace DataStructuresAndAlgorithms.Api.Services
             else Console.WriteLine("\nThe Stacks are not equal; you will have to try a different implementation.");
         }
 
-        private object CreateStack(dynamic stack)
+        /// <summary>
+        /// Fills a stack or any type that implements the stack data structure with some pre defined values.
+        /// </summary>
+        /// <param name="stack">The stack to fill with values.</param>
+        /// <returns>
+        /// The provided stack with some random values.
+        /// </returns>
+        public object CreateStack(dynamic stack)
+        {
+            stack.Push(1);
+            stack.Push("one");
+            stack.Push(1.2358);
+            stack.Pop();
+            stack.Pop();
+            stack.Push("On Top");
+            stack.Pop();
+            stack.Clear();
+            stack.Push("BOTTOM");
+            stack.Push(DateTime.Now.ToShortDateString());
+            stack.Push(500);
+
+            return stack;
+        }
+
+        private object CreateConsoleStack(dynamic stack)
         {
             string outputs = "";
 
