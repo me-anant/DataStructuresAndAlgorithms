@@ -17,5 +17,6 @@ Good luck and have fun.
 - Fork this repository
 - Clone the forked repository to your IDE
 - Create a new branch to save your work upon
-- Create a pull request if your implementation works
+- Push the branch to the forked repository if your implementation works
+- Create a pull request
 - Wait for my response :-)
