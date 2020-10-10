@@ -3,7 +3,7 @@
 This is a repository where I personally learn to create my own implementations of Data-Structures and Algorithms in C#.
 The repository is just starting so there are more Data-Structures and Algorithm implementations yet to come.
 
-Also I let this repository count for the hacktoberfest to give others a chance to learn something about Data-structures and algorithms and at the same time give them a chance to get there required PL's
+Also I let this repository count for the hacktoberfest to give others a chance to learn something about Data-structures and algorithms and at the same time give them a chance to get there required PR's
 
 An issue for implementing a Stack can be found here https://github.com/Kerykeion7/DataStructuresAndAlgorithms/issues/5
 
