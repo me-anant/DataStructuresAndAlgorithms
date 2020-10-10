@@ -11,7 +11,7 @@ An issue for implementing a Dynamic Array can be found here https://github.com/K
 
 Try not to cheat and copy paste code, but try to do it on your self together with the needed research ofcourse.
 
-Good luck, for you and for me, because in all honesty I am a newbie myself to this so do not feel you can not do this or it is too hard, just do and have fun.
+Good luck and have fun.
 
 # Get Started
 - Fork this repository
