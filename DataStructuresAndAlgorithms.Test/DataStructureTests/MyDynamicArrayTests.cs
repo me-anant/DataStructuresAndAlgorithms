@@ -3,12 +3,12 @@ using DataStructuresAndAlgorithms.Api.Services;
 using System.Collections.Generic;
 using Xunit;
 
-namespace DataStructuresAndAlgorithms.Test.Tests
+namespace DataStructuresAndAlgorithms.Test.DataStructureTests
 {
-    public class ArrayTests
+    public class MyDynamicArrayTests
     {
         private readonly ArrayService _arrayService;
-        public ArrayTests()
+        public MyDynamicArrayTests()
         {
             _arrayService = new ArrayService();
         }

@@ -3,12 +3,12 @@ using DataStructuresAndAlgorithms.Api.Services;
 using System.Collections;
 using Xunit;
 
-namespace DataStructuresAndAlgorithms.Test.StackTests
+namespace DataStructuresAndAlgorithms.Test.DataStructureTests
 {
-    public class StackTests
+    public class MyStackTests
     {
         private readonly StackService _stackService;
-        public StackTests()
+        public MyStackTests()
         {
             _stackService = new StackService();
         }
