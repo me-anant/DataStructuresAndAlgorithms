@@ -15,7 +15,7 @@ Good luck and have fun.
 
 # Get Started
 - Fork this repository
-- Clone the forked repository to your IDE
+- Clone the forked repository to your favorite IDE
 - Create a new branch to save your work upon
 - Push the branch to the forked repository if your implementation works
 - Create a pull request
