@@ -1,4 +1,6 @@
 ﻿using DataStructures.Lib.Arrays;
+using DataStructures.Lib.Classes;
+using DataStructures.Lib.LinkedLists;
 using DataStructures.Lib.Stacks;
 using DataStructuresAndAlgorithms.Api.Services;
 using System;
@@ -8,18 +10,19 @@ namespace DataStructuresAndAlgorithms.Cons
 {
     class Program
     {
-        private static StackService _stackService;
-        private static ArrayService _arrayService;
-
         static void Main(string[] args)
         {
-            _stackService = new StackService();
-            _arrayService = new ArrayService();
+            LinkedList<int> vs = new LinkedList<int>();
+            vs.AddLast(5);
+            vs.AddLast(5);
+            vs.AddLast(5);
+            vs.AddLast(10);
+            vs.Remove(5);
 
-            //_stackService.CompareConsoleStackResult(new MyStack());
-
-            //_arrayService.CompareConsoleArrayResult(new MyDynamicArray<int>());
-
+            foreach (var item in vs)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
