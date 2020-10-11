@@ -6,7 +6,7 @@ namespace DataStructures.Lib.Stacks
 {
     public class MyStack : IEnumerable
     {
-        private static object[] array;
+        private object[] array;
         public int Count { get; set; } = 0;
 
         public MyStack()
