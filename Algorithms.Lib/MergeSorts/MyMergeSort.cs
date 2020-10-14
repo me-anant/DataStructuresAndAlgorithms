@@ -9,11 +9,13 @@ namespace Algorithms.Lib.MergeSorts
         private static int _beginPoint = 0;
         private static int _counter = 0;
 
-        public static void MergeSort(this int[] array)
+        public static int[] MergeSort(this int[] array)
         {
             if (_array is null) _array = array;
             _midPoint = (int)Math.Ceiling((float)array.Length / 2);
             ProcessMergeSort(array);
+
+            return _array;
         }
 
         private static void ProcessMergeSort(int[] array, int sourceIndex = 0)
