@@ -10,7 +10,6 @@ namespace Algorithms.Lib.MergeSorts
 
 		public static double[] MergeSort(double[] array1)
 		{
-			//if (_array is null)
 				_array = array1;
 			return MergeSortHelper(_array);
 		}
