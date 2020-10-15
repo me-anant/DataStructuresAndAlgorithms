@@ -2,7 +2,7 @@
 using System.Collections.Immutable;
 using Xunit;
 
-namespace DataStructuresAndAlgorithms.Test.AlgorithmTests
+namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.MergeSorts
 {
     public class MyMergeSortTests
     {
