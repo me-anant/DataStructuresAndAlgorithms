@@ -27,7 +27,6 @@ namespace Algorithms.Lib.QuickSorts
             T[] arr = new T[top - bottom];
             Array.Copy(array, bottom, arr, 0, top - bottom);
 
-            // het heeft met je pivot index te maken...
             int pivotIndex = (int)Math.Ceiling((float)(arr.Length / 2));
             T pivot = arr[pivotIndex];
 
