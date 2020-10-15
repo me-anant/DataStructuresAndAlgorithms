@@ -19,8 +19,8 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.QuickSorts
         [Fact]
         public void MyQuickSortedIntArray_Equals_ExpectedSortedIntArrayTwo()
         {
-            int[] arr = { 5, 4, 80, 65, 17, 1, 9, 53 };
-            int[] expected = { 1, 4, 5, 9, 17, 53, 65, 80 };
+            string[] arr = { "sit", "down", "on", "the", "ground", "david" };
+            string[] expected = { "david", "down", "ground", "on", "sit", "the" };
 
             var actual = arr.QuickSort();
 
@@ -41,8 +41,8 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.QuickSorts
         [Fact]
         public void MyQuickSortedIntArray_Equals_ExpectedSortedIntArrayFour()
         {
-            int[] arr = { 5, 4, 80, 65, 17, 1, 9, 53, 913 };
-            int[] expected = { 1, 4, 5, 9, 17, 53, 65, 80, 913 };
+            char[] arr = { 'd', 'z', 'w', '3', 'f', 'z', 'g', 'b', 't' };
+            char[] expected = { '3', 'b', 'd', 'f', 'g', 't', 'w', 'z', 'z' };
 
             var actual = arr.QuickSort();
 
