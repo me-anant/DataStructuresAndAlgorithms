@@ -3,7 +3,7 @@ using DataStructuresAndAlgorithms.Api.Services;
 using System.Collections.Generic;
 using Xunit;
 
-namespace DataStructuresAndAlgorithms.Test.DataStructureTests
+namespace DataStructuresAndAlgorithms.Test.DataStructureTests.Arrays
 {
     public class MyDynamicArrayTests
     {

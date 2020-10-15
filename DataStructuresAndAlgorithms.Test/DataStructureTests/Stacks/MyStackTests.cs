@@ -3,7 +3,7 @@ using DataStructuresAndAlgorithms.Api.Services;
 using System.Collections;
 using Xunit;
 
-namespace DataStructuresAndAlgorithms.Test.DataStructureTests
+namespace DataStructuresAndAlgorithms.Test.DataStructureTests.Stacks
 {
     public class MyStackTests
     {
