@@ -22,6 +22,12 @@ namespace DataStructures.Lib.Arrays
             _array = new T[_capacity];
         }
 
+        public MyDynamicArray(int capacity)
+        {
+            _capacity = capacity;
+            _array = new T[_capacity];
+        }
+
         public void Clear()
         {
             Array.Clear(_array, 0, Length);
