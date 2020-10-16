@@ -55,7 +55,7 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.QuickSorts
         }
 
         [Fact]
-        public void MyQuickSortTestClassOneArray_Equals_ExpectSortedByIdArray()
+        public void MyQuickSortTestClassOneArray_Equals_ExpectedSortedByIdArray()
         {
             TestClassOne[] arr = TestClassOneService.GenerateTestClassOnesArray();
             TestClassOne[] expected = arr.OrderBy(t => t.Id).ToArray();
@@ -66,7 +66,7 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.QuickSorts
         }
 
         [Fact]
-        public void MyQuickSortTestClassOneArray_Equals_ExpectSortedByNameArray()
+        public void MyQuickSortTestClassOneArray_Equals_ExpectedSortedByNameArray()
         {
             TestClassOne[] arr = TestClassOneService.GenerateTestClassOnesArray();
             TestClassOne[] expected = arr.OrderBy(t => t.Name).ToArray();
@@ -77,7 +77,7 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.QuickSorts
         }
 
         [Fact]
-        public void MyQuickSortTestClassOneArray_Equals_ExpectSortedByDateArray()
+        public void MyQuickSortTestClassOneArray_Equals_ExpectedSortedByDateArray()
         {
             TestClassOne[] arr = TestClassOneService.GenerateTestClassOnesArray();
             TestClassOne[] expected = arr.OrderBy(t => t.Date).ToArray();
