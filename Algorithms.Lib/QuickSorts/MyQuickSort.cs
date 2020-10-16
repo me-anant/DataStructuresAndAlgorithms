@@ -16,32 +16,26 @@ namespace Algorithms.Lib.QuickSorts
         public static T[] QuickSortBy<T, TKey>(this T[] array, Func<T, TKey> keySelector)
         {
             TKey[] keys = new TKey[array.Length];
-            int[] map = new int[keys.Length];
-            MyDynamicArray<object> oldMap = new MyDynamicArray<object>(array.Length);
+            MyDynamicArray<object> map = new MyDynamicArray<object>(array.Length);
 
             for (int i = 0; i < array.Length; i++)
             {
                 keys[i] = keySelector(array[i]);
-                oldMap[i] = keys.GetValue(i);
+                map[i] = keys.GetValue(i);
             }
 
             keys.QuickSort();
 
-            for (int i = 0; i < keys.Length; i++)
-            {
-                int index = oldMap.IndexOf(keys.GetValue(i));
-                map[i] = index;
-                oldMap[index] = "CLEARED";
-            }
-
-            return GetMapOrder(array, map).ToArray();
+            return GetMapOrder(array, map, keys).ToArray();
         }
 
-        private static IEnumerable<T> GetMapOrder<T>(T[] array, int[] map)
+        private static IEnumerable<T> GetMapOrder<T, TKey>(T[] array, MyDynamicArray<object> map, TKey[] keys)
         {
             for (int i = 0; i < map.Length; i++)
             {
-                yield return array[map[i]];
+                int index = map.IndexOf(keys.GetValue(i));
+                map[index] = "Cleared";
+                yield return array[index];
             }
         }
 
