@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructures.Lib.Arrays;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +10,6 @@ namespace Algorithms.Lib.QuickSorts
         public static T[] QuickSort<T>(this T[] array)
         {
             ProcessQuickSort(array, 0, array.Length);
-
             return array;
         }
 
@@ -17,7 +17,7 @@ namespace Algorithms.Lib.QuickSorts
         {
             TKey[] keys = new TKey[array.Length];
             int[] map = new int[keys.Length];
-            object[] oldMap = new object[array.Length];
+            MyDynamicArray<object> oldMap = new MyDynamicArray<object>(array.Length);
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -29,7 +29,7 @@ namespace Algorithms.Lib.QuickSorts
 
             for (int i = 0; i < keys.Length; i++)
             {
-                int index = Array.IndexOf(oldMap, keys.GetValue(i));
+                int index = oldMap.IndexOf(keys.GetValue(i));
                 map[i] = index;
                 oldMap[index] = "CLEARED";
             }
