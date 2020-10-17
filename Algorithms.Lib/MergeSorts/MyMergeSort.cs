@@ -1,94 +1,98 @@
-﻿using System;
+﻿using DataStructures.Lib.Arrays;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Algorithms.Lib.MergeSorts
 {
     public static class MyMergeSort
     {
-        private static int[] _array;
-        private static int _midPoint;
-        private static int _beginPoint = 0;
-        private static int _counter = 0;
-
-        public static int[] MergeSort(this int[] array)
+        public static T[] MergeSort<T>(this T[] array)
         {
-            if (_array is null) _array = array;
-            _midPoint = (int)Math.Ceiling((float)array.Length / 2);
-            ProcessMergeSort(array);
-
-            return _array;
+            ProcessMergeSort(array, 0, array.Length - 1);
+            return array;
         }
 
-        private static void ProcessMergeSort(int[] array, int sourceIndex = 0)
+        public static T[] MergeSortBy<T, TKey>(this T[] array, Func<T, TKey> keySelector)
         {
-            var midPoint = (int)Math.Ceiling((float)array.Length / 2);
-            int rightArrayLength = array.Length - midPoint;
+            TKey[] keys = new TKey[array.Length];
+            MyDynamicArray<object> map = new MyDynamicArray<object>(array.Length);
 
-            var leftArray = new int[midPoint];
-            Array.Copy(array, 0, leftArray, 0, midPoint);
-
-            var rightArray = new int[rightArrayLength];
-            Array.Copy(array, midPoint, rightArray, 0, rightArrayLength);
-
-
-            if (0 < array.Length - 1)
+            for (int i = 0; i < array.Length; i++)
             {
-                _counter++;
-
-                if (_counter > _midPoint) _beginPoint = _midPoint;
-
-                ProcessMergeSort(leftArray, _beginPoint);
-
-                if (_counter > _midPoint) _beginPoint = midPoint + _midPoint;
-                else _beginPoint = midPoint;
-
-                ProcessMergeSort(rightArray, _beginPoint);
-
-                Merge(midPoint, rightArrayLength, sourceIndex);
+                keys[i] = keySelector(array[i]);
+                map[i] = keys.GetValue(i);
             }
 
-            return;
+            keys.MergeSort();
+
+            return GetMapOrder(array, map, keys).ToArray();
         }
 
-        private static void Merge(int l, int r, int sourceIndex)
+        private static IEnumerable<T> GetMapOrder<T, TKey>(T[] array, MyDynamicArray<object> map, TKey[] keys)
         {
-            var leftArray = new int[l];
-            Array.Copy(_array, sourceIndex, leftArray, 0, l);
+            for (int i = 0; i < map.Length; i++)
+            {
+                int index = map.IndexOf(keys.GetValue(i));
+                map[index] = $"CLEARED_{Guid.NewGuid()}" ;
+                yield return array[index];
+            }
+        }
 
-            var rightArray = new int[r];
-            Array.Copy(_array, sourceIndex + l, rightArray, 0, r);
+        private static void ProcessMergeSort<T>(T[] array, int bottom, int top)
+        {
+            if (bottom < top)
+            {
+                int middle = bottom + (top - bottom) / 2;
 
+                ProcessMergeSort(array, bottom, middle);
+                ProcessMergeSort(array, middle + 1, top);
+
+                Merge(array, bottom, middle, top);
+            }
+        }
+
+        private static void Merge<T>(T[] array, int bottom, int middle, int top)
+        {
+            T[] leftArray = new T[middle - bottom + 1];
+            Array.Copy(array, bottom, leftArray, 0, middle - bottom + 1);
+
+            T[] rightArray = new T[top - middle];
+            Array.Copy(array, middle + 1, rightArray, 0, top - middle);
+
+            int mainIndex = bottom;
             int leftTracker = 0;
             int rightTracker = 0;
 
-            var currentPosition = sourceIndex;
-
             while (leftTracker < leftArray.Length && rightTracker < rightArray.Length)
             {
-                if (leftArray[leftTracker] <= rightArray[rightTracker])
+                IComparable<T> currentLeft = leftArray[leftTracker] as IComparable<T>;
+
+                if (currentLeft.CompareTo(rightArray[rightTracker]) <= 0)
                 {
-                    _array[currentPosition] = leftArray[leftTracker];
+                    array[mainIndex] = leftArray[leftTracker];
                     leftTracker++;
                 }
                 else
                 {
-                    _array[currentPosition] = rightArray[rightTracker];
+                    array[mainIndex] = rightArray[rightTracker];
                     rightTracker++;
                 }
-                currentPosition++;
+                mainIndex++;
             }
 
             while (leftTracker < leftArray.Length)
             {
-                _array[currentPosition] = leftArray[leftTracker];
+                array[mainIndex] = leftArray[leftTracker];
                 leftTracker++;
-                currentPosition++;
+                mainIndex++;
             }
 
             while (rightTracker < rightArray.Length)
             {
-                _array[currentPosition] = rightArray[rightTracker];
+                array[mainIndex] = rightArray[rightTracker];
                 rightTracker++;
-                currentPosition++;
+                mainIndex++;
             }
         }
     }
