@@ -1,5 +1,4 @@
-﻿using Algorithms.Lib.Helpers;
-using Algorithms.Lib.Sorting.MergeSorts;
+﻿using Algorithms.Lib.Sorting.MergeSorts;
 using System;
 
 namespace Algorithms.Lib.Searching.BinarySearches
