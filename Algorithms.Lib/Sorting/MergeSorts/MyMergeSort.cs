@@ -1,6 +1,6 @@
-﻿using DataStructures.Lib.Arrays;
+﻿using Algorithms.Lib.Sorting.Helpers;
+using DataStructures.Lib.Arrays;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithms.Lib.Sorting.MergeSorts
@@ -16,27 +16,9 @@ namespace Algorithms.Lib.Sorting.MergeSorts
         public static T[] MergeSortBy<T, TKey>(this T[] array, Func<T, TKey> keySelector)
         {
             TKey[] keys = new TKey[array.Length];
-            MyDynamicArray<object> map = new MyDynamicArray<object>(array.Length);
+            MyDynamicArray<object> map = SortHelper.CreateMap(array, keys, keySelector);
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                keys[i] = keySelector(array[i]);
-                map[i] = keys.GetValue(i);
-            }
-
-            keys.MergeSort();
-
-            return GetMapOrder(array, map, keys).ToArray();
-        }
-
-        private static IEnumerable<T> GetMapOrder<T, TKey>(T[] array, MyDynamicArray<object> map, TKey[] keys)
-        {
-            for (int i = 0; i < map.Length; i++)
-            {
-                int index = map.IndexOf(keys.GetValue(i));
-                map[index] = $"CLEARED_{Guid.NewGuid()}";
-                yield return array[index];
-            }
+            return SortHelper.OrderByMapToArray(array, map, keys.MergeSort());
         }
 
         private static void ProcessMergeSort<T>(T[] array, int bottom, int top)
