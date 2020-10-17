@@ -1,7 +1,6 @@
 ﻿using Algorithms.Lib.Sorting.Helpers;
 using DataStructures.Lib.Arrays;
 using System;
-using System.Linq;
 
 namespace Algorithms.Lib.Sorting.QuickSorts
 {
