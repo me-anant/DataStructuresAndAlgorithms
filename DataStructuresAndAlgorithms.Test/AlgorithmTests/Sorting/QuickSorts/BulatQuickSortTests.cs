@@ -1,4 +1,4 @@
-﻿using Algorithms.Lib.QuickSorts;
+﻿using Algorithms.Lib.Sorting.QuickSorts;
 using Xunit;
 
 namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.QuickSorts

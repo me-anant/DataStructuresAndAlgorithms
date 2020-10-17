@@ -1,8 +1,6 @@
-﻿using Algorithms.Lib.QuickSorts;
+﻿using Algorithms.Lib.Sorting.QuickSorts;
 using DataStructuresAndAlgorithms.Api.Services;
 using DataStructuresAndAlgorithms.Test.Classes;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 

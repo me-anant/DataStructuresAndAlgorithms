@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Algorithms.Lib.QuickSorts
+namespace Algorithms.Lib.Sorting.QuickSorts
 {
     public static class MyQuickSort
     {
@@ -34,7 +34,7 @@ namespace Algorithms.Lib.QuickSorts
             for (int i = 0; i < map.Length; i++)
             {
                 int index = map.IndexOf(keys.GetValue(i));
-                map[index] = "Cleared";
+                map[index] = $"CLEARED_{Guid.NewGuid()}";
                 yield return array[index];
             }
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Algorithms.Lib.QuickSorts
+namespace Algorithms.Lib.Sorting.QuickSorts
 {
     public class BulatQuickSort<T> where T : IComparable<T>
     {

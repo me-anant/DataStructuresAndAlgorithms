@@ -1,4 +1,4 @@
-﻿using Algorithms.Lib.MergeSorts;
+﻿using Algorithms.Lib.Sorting.MergeSorts;
 using DataStructuresAndAlgorithms.Api.Services;
 using DataStructuresAndAlgorithms.Test.Classes;
 using System.Linq;
