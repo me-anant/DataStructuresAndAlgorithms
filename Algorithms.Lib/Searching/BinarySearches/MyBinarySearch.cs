@@ -1,15 +1,13 @@
-﻿using Algorithms.Lib.Sorting.MergeSorts;
+﻿using Algorithms.Lib.Helpers;
+using Algorithms.Lib.Sorting.MergeSorts;
 using System;
 
 namespace Algorithms.Lib.Searching.BinarySearches
 {
     public static class MyBinarySearch
     {
-        public static T BinarySearch<T>(this T[] array, T searchKey)
+        public static T CustomBinarySearch<T>(this T[] array, T searchKey)
         {
-            if (typeof(T).GetProperties().Length > 0)
-                throw new ArgumentException("This method can only be called on arrays of predefined data types.", nameof(array));
-
             array.MergeSort();
             return Find(array, searchKey);
         }

@@ -1,6 +1,7 @@
 ﻿using Algorithms.Lib.Sorting.MergeSorts;
 using DataStructuresAndAlgorithms.Api.Services;
 using DataStructuresAndAlgorithms.Test.Classes;
+using System;
 using System.Linq;
 using Xunit;
 
@@ -83,6 +84,14 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.MergeSorts
             TestClassOne[] actual = arr.MergeSortBy(t => t.Date);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void MergeSortCall_Throws_ArgumentException()
+        {
+            TestClassOne[] arr = TestClassOneService.GenerateTestClassOnesArray();
+
+            Assert.Throws<ArgumentException>(() => arr.MergeSort());
         }
     }
 }

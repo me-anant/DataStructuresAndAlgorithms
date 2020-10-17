@@ -1,6 +1,7 @@
 ﻿using Algorithms.Lib.Sorting.QuickSorts;
 using DataStructuresAndAlgorithms.Api.Services;
 using DataStructuresAndAlgorithms.Test.Classes;
+using System;
 using System.Linq;
 using Xunit;
 
@@ -83,6 +84,14 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Sorting.QuickSorts
             TestClassOne[] actual = arr.QuickSortBy(t => t.Date);
 
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void QuickSortCall_Throws_ArgumentException()
+        {
+            TestClassOne[] arr = TestClassOneService.GenerateTestClassOnesArray();
+
+            Assert.Throws<ArgumentException>(() => arr.QuickSort());
         }
     }
 }

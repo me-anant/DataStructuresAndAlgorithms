@@ -1,4 +1,5 @@
-﻿using Algorithms.Lib.Sorting.Helpers;
+﻿using Algorithms.Lib.Helpers;
+using Algorithms.Lib.Sorting.Helpers;
 using DataStructures.Lib.Arrays;
 using System;
 
@@ -8,6 +9,8 @@ namespace Algorithms.Lib.Sorting.MergeSorts
     {
         public static T[] MergeSort<T>(this T[] array)
         {
+            AlgorithmsHelper.ThrowArgumentExceptionIfDataTypeIsClassAndNotString(typeof(T));
+
             ProcessMergeSort(array, 0, array.Length - 1);
             return array;
         }

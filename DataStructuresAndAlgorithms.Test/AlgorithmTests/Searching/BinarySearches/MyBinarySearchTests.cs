@@ -1,5 +1,8 @@
 ﻿using Algorithms.Lib.Searching.BinarySearches;
+using DataStructuresAndAlgorithms.Api.Services;
+using DataStructuresAndAlgorithms.Test.Classes;
 using System;
+using System.Linq;
 using Xunit;
 
 namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Searching.BinarySearches
@@ -11,7 +14,7 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Searching.BinarySearch
         {
             int[] arr = { 350, 78, 5, 4, 80, 65, 17, 1, 9, 53 };
 
-            int key = arr.BinarySearch(1);
+            int key = arr.CustomBinarySearch(1);
 
             Assert.Equal(1, key);
         }
@@ -21,9 +24,17 @@ namespace DataStructuresAndAlgorithms.Test.AlgorithmTests.Searching.BinarySearch
         {
             int[] arr = { 350, 78, 5, 4, 80, 65, 17, 1, 9, 53 };
 
-            int key = arr.BinarySearch(3);
+            int key = arr.CustomBinarySearch(3);
 
             Assert.Equal(0, key);
+        }
+
+        [Fact]
+        public void MergeSortCall_Throws_ArgumentException()
+        {
+            TestClassOne[] arr = TestClassOneService.GenerateTestClassOnesArray();
+
+            Assert.Throws<ArgumentException>(() => arr.CustomBinarySearch(arr.First()));
         }
     }
 }
